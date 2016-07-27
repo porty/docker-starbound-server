@@ -12,8 +12,7 @@ RUN apt-get update \
 	&& cd /steamcmd \
 	&& wget -o /tmp/steamcmd.tar.gz http://media.steampowered.com/installer/steamcmd_linux.tar.gz \
 	&& tar zxvf steamcmd_linux.tar.gz \
-	&& rm steamcmd_linux.tar.gz \
-	&& chmod +x ./steamcmd.sh /start.sh
+	&& rm steamcmd_linux.tar.gz
 
 EXPOSE 21025
 EXPOSE 21026
