@@ -5,13 +5,11 @@ MAINTAINER Michael Lawrence <me@mikelawrence.co>
 VOLUME ["/starbound"]
 
 RUN apt-get update \
-	&& apt-get install -y lib32gcc1 wget libpng12-0 \
+	&& apt-get install -y lib32gcc1 curl libpng12-0 \
 	&& rm -rf /var/lib/apt/lists/*
 RUN	mkdir -p /starbound /steamcmd \
 	&& cd /steamcmd \
-	&& wget -o /tmp/steamcmd.tar.gz http://media.steampowered.com/installer/steamcmd_linux.tar.gz \
-	&& tar zxvf steamcmd_linux.tar.gz \
-	&& rm steamcmd_linux.tar.gz
+	&& curl http://media.steampowered.com/installer/steamcmd_linux.tar.gz | gunzip -c | tar x
 
 COPY start.sh /start.sh
 
